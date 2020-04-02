@@ -83,8 +83,8 @@ namespace ProAgil.API.Controllers
         }
 
         // PUT api/value
-        [HttpPut]
-        public async Task<IActionResult> Put(int id, Evento model)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody]Evento model)
         {
             try
             {
@@ -104,7 +104,7 @@ namespace ProAgil.API.Controllers
         }
 
         // DELETE api/value
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             try
@@ -117,7 +117,7 @@ namespace ProAgil.API.Controllers
                 if (await Repository.SaveChangesAsync())
                     return Ok();
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou.");
             }
