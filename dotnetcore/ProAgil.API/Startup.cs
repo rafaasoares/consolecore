@@ -12,7 +12,13 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
-using ProAgil.API.Data;
+using ProAgil.Repository;
+using ProAgil.Repository.Interface;
+using ProAgil.Repository.Repository;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.IO;
+using ProAgil.API.Middleware;
 
 namespace ProAgil.API
 {
@@ -28,9 +34,12 @@ namespace ProAgil.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(x=> x.UseSqlite(Configuration.GetConnectionString("default")));
+            services.AddDbContext<ProAgilContext>(x=> x.UseSqlite(Configuration.GetConnectionString("default")));
+            services.AddScoped<IProAgilRepository, ProAgilRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
+
+            services.AddSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,9 +55,12 @@ namespace ProAgil.API
                 app.UseHsts();
             }
 
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
+
+            app.UseSwaggerApp();
         }
     }
 }

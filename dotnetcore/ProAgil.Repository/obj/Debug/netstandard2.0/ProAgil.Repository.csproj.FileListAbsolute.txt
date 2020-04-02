@@ -1,0 +1,12 @@
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\obj\Debug\netstandard2.0\ProAgil.Repository.csprojAssemblyReference.cache
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\obj\Debug\netstandard2.0\ProAgil.Repository.csproj.CoreCompileInputs.cache
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\obj\Debug\netstandard2.0\ProAgil.Repository.AssemblyInfoInputs.cache
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\obj\Debug\netstandard2.0\ProAgil.Repository.AssemblyInfo.cs
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\bin\Debug\netstandard2.0\ProAgil.Repository.deps.json
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\bin\Debug\netstandard2.0\ProAgil.Repository.dll
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\bin\Debug\netstandard2.0\ProAgil.Repository.pdb
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\bin\Debug\netstandard2.0\ProAgil.Domain.dll
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\bin\Debug\netstandard2.0\ProAgil.Domain.pdb
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\obj\Debug\netstandard2.0\ProAgil.Repository.csproj.CopyComplete
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\obj\Debug\netstandard2.0\ProAgil.Repository.dll
+C:\Users\rafa_\source\repos\angular-dotnetcore-efcore\dotnetcore\ProAgil.Repository\obj\Debug\netstandard2.0\ProAgil.Repository.pdb

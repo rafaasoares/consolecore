@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ProAgil.API.Model;
-using ProAgil.API.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using ProAgil.Repository;
+using ProAgil.Domain;
 
 namespace ProAgil.API.Controllers
 {
@@ -14,9 +14,9 @@ namespace ProAgil.API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        public readonly DataContext Context;
+        public readonly ProAgilContext Context;
 
-        public ValuesController(DataContext context)
+        public ValuesController(ProAgilContext context)
         {
             this.Context = context;
         }
@@ -42,7 +42,7 @@ namespace ProAgil.API.Controllers
         {
             try
             {
-                var retorno = Context.Eventos.FirstOrDefaultAsync(x=> x.EventoId == id);
+                var retorno = Context.Eventos.FirstOrDefaultAsync(x=> x.Id == id);
                 return Ok(retorno);
             }
             catch (System.Exception)
