@@ -19,6 +19,7 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
 using ProAgil.API.Middleware;
+using AutoMapper;
 
 namespace ProAgil.API
 {
@@ -36,6 +37,8 @@ namespace ProAgil.API
         {
             services.AddDbContext<ProAgilContext>(x=> x.UseSqlite(Configuration.GetConnectionString("default")));
             services.AddScoped<IProAgilRepository, ProAgilRepository>();
+
+            services.AddAutoMapper(typeof(Startup));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
 
