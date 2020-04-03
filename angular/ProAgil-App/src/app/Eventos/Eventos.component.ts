@@ -6,7 +6,7 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { templateJitUrl } from '@angular/compiler';
+import { ToastrService } from 'ngx-toastr';
 defineLocale('pt-br', ptBrLocale);
 
 @Component({
@@ -14,6 +14,7 @@ defineLocale('pt-br', ptBrLocale);
   templateUrl: './Eventos.component.html',
   styleUrls: ['./Eventos.component.css']
 })
+
 export class EventosComponent implements OnInit {
   _filtroLista: string = '';
   eventosFitrados: Evento[];
@@ -25,12 +26,15 @@ export class EventosComponent implements OnInit {
   registerForm: FormGroup;
   modoSalvar = 'post';
   bodyDeletarEvento = '';
+  dataEvento: string;
+  title = 'Eventos';
 
   constructor(
     private eventoService: EventoService,
     private modalService: BsModalService,
     private fb: FormBuilder,
-    private localeService: BsLocaleService
+    private localeService: BsLocaleService,
+    private toastr: ToastrService
     ) {
       this.localeService.use('pt-br');
     }
@@ -93,8 +97,10 @@ export class EventosComponent implements OnInit {
     this.eventoService.deleteEvento(this.evento.id).subscribe(
       () => {
           template.hide();
+          this.toastr.success('Excluido com sucesso!', 'Sucesso!');
           this.getEventos();
         }, error => {
+          this.toastr.error('Não foi possível executar', 'Error!');
           console.log(error);
         }
     );
@@ -126,7 +132,9 @@ export class EventosComponent implements OnInit {
             console.log(novoEvento);
             template.hide();
             this.getEventos();
+            this.toastr.success('Executado com sucesso!', 'Sucesso!');
           }, error => {
+            this.toastr.error('Não foi possível executar', 'Error!');
             console.log(error);
           }
         );
@@ -136,8 +144,10 @@ export class EventosComponent implements OnInit {
           (novoEvento: Evento) => {
             console.log(novoEvento);
             template.hide();
+            this.toastr.success('Executad com sucesso!', 'Sucesso!');
             this.getEventos();
           }, error => {
+            this.toastr.error('Não foi possível executar', 'Error!');
             console.log(error);
           }
         );

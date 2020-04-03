@@ -97,18 +97,17 @@ namespace ProAgil.API.Controllers
         {
             try
             {
-                
-                var evento = Repository.GetEventoByIdAsync(id, false);
+                var evento = await Repository.GetEventoByIdAsync(id, false);
                 if (evento == null)
                     return NotFound();
 
                 var modelMapper = Mapper.Map(model, evento);
 
-                Repository.Update(model);
+                Repository.Update(modelMapper);
                 if (await Repository.SaveChangesAsync())
                     return Created($"/api/evento/{modelMapper.Id}", modelMapper);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou.");
             }
@@ -121,7 +120,7 @@ namespace ProAgil.API.Controllers
         {
             try
             {
-                var evento = Repository.GetEventoByIdAsync(id, false);
+                var evento = await Repository.GetEventoByIdAsync(id, false);
                 if (evento == null)
                     return NotFound();
 

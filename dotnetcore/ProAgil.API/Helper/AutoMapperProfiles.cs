@@ -13,9 +13,8 @@ namespace ProAgil.API.Helper
         public AutoMapperProfiles()
         {
             CreateMap<Evento, EventoDto>()
-                .ForMember(dto => dto.Palestrante, entity => entity.MapFrom(x=> x.PalestranteEventos.Select(o=> o.Palestante)));
-
-            CreateMap<EventoDto, Evento>();
+                .ForMember(dto => dto.Palestrante, entity => entity.MapFrom(x=> x.PalestranteEventos.Select(o=> o.Palestante)))
+                .ReverseMap();
 
             CreateMap<Palestrante, PalestranteDto>()
                 .ForMember(dto => dto.Eventos, entity => entity.MapFrom(x => x.PalestranteEventos.Select(o => o.Evento)));
