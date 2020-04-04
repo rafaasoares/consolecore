@@ -20,6 +20,8 @@ using System.Reflection;
 using System.IO;
 using ProAgil.API.Middleware;
 using AutoMapper;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Http;
 
 namespace ProAgil.API
 {
@@ -59,6 +61,12 @@ namespace ProAgil.API
             }
 
             app.UseStaticFiles();
+            // UTILIZADO PARA CARREGAR AS IMAGENS BASEADO NA PASTA RESOURCES
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
+                RequestPath = new PathString("/Resources")
+            });
             app.UseHttpsRedirection();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
