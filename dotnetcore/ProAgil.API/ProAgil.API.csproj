@@ -8,6 +8,18 @@
     <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Resources\Images\img1.jpg" />
+    <None Remove="Resources\Images\img2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Images\img1.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Resources\Images\img2.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\ProAgil.Domain\ProAgil.Domain.csproj" />
     <ProjectReference Include="..\ProAgil.Repository\ProAgil.Repository.csproj" />
   </ItemGroup>
